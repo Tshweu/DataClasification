@@ -13,5 +13,6 @@
     {
       "path": "./tsconfig.spec.json"
     }
-]
+],
+"include": ["node_modules/angular-bootstrap-md/**/*.ts",  "src/**/*.ts"] // add this line
 }
