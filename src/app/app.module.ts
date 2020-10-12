@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
