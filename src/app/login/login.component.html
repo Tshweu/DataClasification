@@ -3,9 +3,9 @@
 
     <p class="h4 mb-4 text-center">Sign in</p>
 
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input [(ngModel)]="user.email" name="user.email" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
 
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+    <input [(ngModel)]="user.password" name="user.password" type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
 
     <div class="d-flex justify-content-between">
         <div>
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+    <button (click)="login()" class="btn btn-info btn-block my-4" type="submit">Sign in</button>
 
     <div class="text-center">
         <p>Not a member?
