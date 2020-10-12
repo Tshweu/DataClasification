@@ -11,7 +11,11 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { LandingComponent } from './landing/landing.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 
 @NgModule({
@@ -19,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,13 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard, 
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    //allows use of multiple interceptors
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
