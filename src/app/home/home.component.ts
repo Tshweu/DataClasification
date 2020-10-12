@@ -11,5 +11,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  //Need to add authentication verification to all other internal components
 
 }
