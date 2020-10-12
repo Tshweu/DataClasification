@@ -10,6 +10,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,10 +26,11 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
