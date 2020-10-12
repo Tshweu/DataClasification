@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../user-model';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
   user: UserModel = new UserModel();
   
   //injecting auth service
-  constructor(private _auth: AuthService) { }
+  constructor(private _auth: AuthService,
+              private _router:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +24,10 @@ export class RegisterComponent implements OnInit {
       //a response(res or err) from the api
       .subscribe(
         res => {console.log(res)
-                localStorage.setItem('token',res.token)},
+                //store token
+                localStorage.setItem('token',res.token)
+                //navigate to login
+                this._router.navigate(['/login'])},
         err => console.log(err)
       )
   }
