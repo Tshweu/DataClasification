@@ -13,8 +13,14 @@ export class AuthService {
     return this.http.post<any>(this._registerUrl,user);
   }
 
-  loginUser(user){
-    return this.http.post<any>(this._loginUrl,user);
+  loginUser(userLogin){
+    return this.http.post<any>(this._loginUrl,userLogin);
+  }
+  //Method to check if token exists
+  loggedIn(){
+    //used double negation instead of 
+    //localStorage.getItem('token') != null ? true : false.
+    return !!localStorage.getItem('token') && localStorage.getItem('token') !== 'undefined' ;
   }
 
 }

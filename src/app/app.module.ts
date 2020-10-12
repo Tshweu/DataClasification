@@ -14,6 +14,7 @@ import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing/landing.component';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { LandingComponent } from './landing/landing.component';
     HttpClientModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
