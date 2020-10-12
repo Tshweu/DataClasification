@@ -22,5 +22,9 @@ export class AuthService {
     //localStorage.getItem('token') != null ? true : false.
     return !!localStorage.getItem('token') && localStorage.getItem('token') !== 'undefined' ;
   }
+  //getting token method
+  getToken(){
+    return localStorage.getItem('token');
+  }
 
 }
