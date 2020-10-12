@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../user-model';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -10,13 +11,17 @@ import { UserModel } from '../user-model';
 export class LoginComponent implements OnInit {
   user: UserModel = new UserModel();
 
-  constructor() { }
+  constructor(private _auth:AuthService) { }
 
   ngOnInit(): void {
   }
 
   login(){
-    console.log(this.user);
+    this._auth.loginUser(this.user)
+      .subscribe(
+        err => console.log(err),
+        res => console.log(res)
+      )
   }
 
 }
