@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  user: UserModel = new UserModel();
+  loginUser: UserModel = new UserModel();
 
   //inject service and router
   constructor(private _auth:AuthService,
@@ -20,17 +20,18 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this._auth.loginUser(this.user)
+    this._auth.loginUser(this.loginUser)
       //subscribe to authentication because we expect
       //a response(res or err) from the api
-      .subscribe(
-        err => console.log(err),
-        res => {console.log(res);
+      .subscribe( 
+        res => {console.log(res)
                 //store token 
-                localStorage.setItem('token',res.token);
+                localStorage.setItem('token',res.token)
                 //navigate to home page
                 this._router.navigate(['/home'])
-              }
+              },
+        err => console.log(err)
+
       )
   }
 
