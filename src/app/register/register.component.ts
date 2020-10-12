@@ -21,7 +21,8 @@ export class RegisterComponent implements OnInit {
       //subscribe to authentication because we expect
       //a response(res or err) from the api
       .subscribe(
-        res => console.log(res),
+        res => {console.log(res)
+                localStorage.setItem('token',res.token)},
         err => console.log(err)
       )
   }
