@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule
