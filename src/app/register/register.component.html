@@ -1,19 +1,15 @@
 <div class="col-sm">
     <form class="border border-light p-5">
 
-        <p class="h4 mb-4 text-center">Sign up</p>
+        <p class="h4 mb-4 text-center">Register</p>
+        
+        <input [(ngModel)]="user.email" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
     
-        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
-    
-        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
-    
-        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-    
-        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <input [(ngModel)]="user.password" name="password" type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
     
         <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">Minimal 8 characters lenght</small>
     
-        <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+        <button class="btn btn-info my-4 btn-block" type="submit" (click)="registerUser()">Register</button>
     
         
     </form>
