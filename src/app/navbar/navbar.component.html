@@ -19,7 +19,8 @@
           <a class="nav-link waves-light" routerLink="register" *ngIf="!_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link waves-light" *ngIf="_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>Logout</a>
+          <a class="nav-link waves-light" *ngIf="_auth.loggedIn()" (click)="_auth.logoutUser()"  
+              routerLinkActive="active" mdbWavesEffect>Logout</a>
         </li>
       </ul>
     </links>
