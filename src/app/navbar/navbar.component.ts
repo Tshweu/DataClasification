@@ -12,5 +12,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  loggedIn(){
+    return this._auth.loggedIn();
+  }
 
+  logout(){
+    return this._auth.logoutUser();
+  }
 }
