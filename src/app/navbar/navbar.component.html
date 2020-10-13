@@ -3,22 +3,25 @@
   <mdb-navbar-brand><a class="navbar-brand" href="/">Data Cataloger</a></mdb-navbar-brand>
     
     <links>
-    <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link waves-light" routerLink="" routerLinkActive="active" mdbWavesEffect>Upload</a>
+                <a class="nav-link waves-light" routerLink="" *ngIf="_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>Upload</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" routerLink="" routerLinkActive="active" mdbWavesEffect>View Metadata</a>
+                <a class="nav-link waves-light" routerLink="" *ngIf="_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>View Metadata</a>
             </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
+      </ul>
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link waves-light" routerLink="login" routerLinkActive="active" mdbWavesEffect>Login</a>
+          <a class="nav-link waves-light" routerLink="login" *ngIf="!_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link waves-light" routerLink="register" routerLinkActive="active" mdbWavesEffect>Register</a>
+          <a class="nav-link waves-light" routerLink="register" *ngIf="!_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>Register</a>
         </li>
-       
+        <li class="nav-item">
+          <a class="nav-link waves-light" *ngIf="_auth.loggedIn()" (click)="_auth.logoutUser()"  
+              routerLinkActive="active" mdbWavesEffect>Logout</a>
+        </li>
       </ul>
     </links>
   </mdb-navbar>
