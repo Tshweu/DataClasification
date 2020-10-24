@@ -4,20 +4,19 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './login/login.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { RegisterComponent } from '././components/register/register.component';
-import { NavbarComponent } from '././components/navbar/navbar.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '././services/auth.service';
+import { AuthService } from './auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HomeComponent } from '././components/home/home.component';
-import { LandingComponent } from '././components/landing/landing.component';
-import { AuthGuard } from '././guards/auth.guard';
-import { TokenInterceptorService } from '././services/token-interceptor.service';
-import { ToastrModule } from 'ngx-toastr';
-import { FileSelectDirective } from 'ng2-file-upload';
+import { HomeComponent } from './home/home.component';
+import { LandingComponent } from './landing/landing.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
-    LandingComponent,
-    FileSelectDirective
+    LandingComponent
   ],
   imports: [
     BrowserModule,
