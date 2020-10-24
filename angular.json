@@ -32,6 +32,8 @@
               "./node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
               "./node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
               "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/animate.css/animate.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -106,6 +108,7 @@
               "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
               "node_modules/animate.css/animate.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
             "scripts": [
