@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,7 +38,9 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule,
+    MatButtonModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthService, AuthGuard, 

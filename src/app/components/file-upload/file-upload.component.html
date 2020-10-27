@@ -3,9 +3,6 @@
     
         <p class="h4 mb-4 text-center">File Upload</p>
         <div class="input-group">
-            <!-- <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-            </div> -->
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="inputGroupFile"
                 aria-describedby="inputGroupFileAddon"
@@ -17,11 +14,17 @@
         <!-- <div class="d-flex justify-content-between">
             
         </div> -->
-        <button class="btn btn-info btn-block my-4" 
+        <button mat-raised-button [disabled]="!fileExists ? 'true' : 'false'" color="primary" class="btn btn-block my-4"
             type="submit" 
             (click)="uploadFile()"
         >Upload</button>
+        <!-- <div class="progress-container" [style.visibility]="fileExists ? 'visible' : 'hidden'"> -->
+            <label for="">File is Uploading...{{ value }}</label>
+            <mat-progress-bar mode="determinate" [value]="value"></mat-progress-bar>
+        
     
     </form>
 </div>
+
+
     
