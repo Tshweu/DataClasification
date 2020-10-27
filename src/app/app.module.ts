@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
-    LandingComponent
+    LandingComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
