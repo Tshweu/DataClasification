@@ -8,7 +8,7 @@ import { FileUploadService } from '../../services/file-upload.service';
 })
 export class FileUploadComponent implements OnInit {
   selectedFile: File = null;
-
+  fileName : string = 'Choose file';
   constructor(private _fileUploadService: FileUploadService) { }
 
   ngOnInit(): void {
@@ -18,6 +18,7 @@ export class FileUploadComponent implements OnInit {
   //selected file is set to value of the selected file
   onFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
+    this.fileName = this.selectedFile.name;
     console.log(this.selectedFile);
   }
   //On upload button click
