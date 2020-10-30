@@ -6,6 +6,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FileUploadComponent } from './components/home/file-upload/file-upload.component';
+import { ReviewComponent } from './components/home/review/review.component';
 
 const routes: Routes = [
   {path:"",component:LandingComponent},
@@ -14,7 +15,10 @@ const routes: Routes = [
   {path:"home",component:HomeComponent,
   children:[
     {path:'upload',component:FileUploadComponent},
-  ],canActivate:[AuthGuard]},
+    {path:'review',component:ReviewComponent}
+  ],
+  // canActivate:[AuthGuard]
+},
   
 ];
 
