@@ -1,0 +1,40 @@
+<div class="col-ml">
+    <form class="border border-light p-5">
+        <p class="h4 mb-4 text-center">Meta Data</p>
+        <table mdbTable #tableEl="mdbTable" class="z-depth-1" hover="true">
+            <thead>
+            <tr>
+              <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let el of elements; let i = index">
+              <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
+                  scope="row">{{el.id}}</th>
+              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                <input class="form-control mb-3" placeholder="Field" value="{{el.first}}"></td>
+              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.last}}</td>
+              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                <div class="custom-control custom-switch">
+                    <input (click)="checkClassification(el)" type="checkbox" class="custom-control-input" id="customSwitches + {{el.id}}">
+                    <label class="custom-control-label" for="customSwitches + {{el.id}}"></label> 
+                    <button mdbBtn *ngIf="el.classification == ''? false : true" color="red" size="sm" mdbWavesEffect type="button" class="m-0">{{ el.classification }}</button>
+                    <button mdbBtn *ngIf="!el.classification == ''? false : true" color="green" size="sm" mdbWavesEffect type="button" class="m-0"> Unclassified </button>
+                </div>
+            </td>
+            </tr>
+            </tbody>
+            <tfoot class="grey lighten-5 w-100">
+            <tr>
+              <td colspan="4">
+                <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+           
+            <!-- Default switch -->
+            
+    </form>
+</div>

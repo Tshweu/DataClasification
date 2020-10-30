@@ -5,21 +5,21 @@
     <links>
       <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link waves-light" routerLink="" *ngIf="_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>Upload</a>
+                <a class="nav-link waves-light" routerLink="" *ngIf="loggedIn()" routerLinkActive="active" mdbWavesEffect>Upload</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" routerLink="" *ngIf="_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>View Metadata</a>
+                <a class="nav-link waves-light" routerLink="" *ngIf="loggedIn()" routerLinkActive="active" mdbWavesEffect>View Metadata</a>
             </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link waves-light" routerLink="login" *ngIf="!_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>Login</a>
+          <a class="nav-link waves-light" routerLink="login" *ngIf="!loggedIn()" routerLinkActive="active" mdbWavesEffect>Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link waves-light" routerLink="register" *ngIf="!_auth.loggedIn()" routerLinkActive="active" mdbWavesEffect>Register</a>
+          <a class="nav-link waves-light" routerLink="register" *ngIf="!loggedIn()" routerLinkActive="active" mdbWavesEffect>Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link waves-light" *ngIf="_auth.loggedIn()" (click)="_auth.logoutUser()"  
+          <a class="nav-link waves-light" *ngIf="loggedIn()" (click)="logout()"  
               routerLinkActive="active" mdbWavesEffect>Logout</a>
         </li>
       </ul>
