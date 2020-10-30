@@ -19,6 +19,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FileUploadComponent } from './components/home/file-upload/file-upload.component';
+import { ReviewComponent } from './components/home/review/review.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FileUploadComponent } from './components/home/file-upload/file-upload.c
     NavbarComponent,
     HomeComponent,
     LandingComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
