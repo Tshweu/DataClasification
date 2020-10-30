@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './auth.guard';
-import { HomeComponent } from './home/home.component';
-import { LandingComponent } from './landing/landing.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guards/auth.guard';
+import { HomeComponent } from './components/home/home.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { FileUploadComponent } from './components/home/file-upload/file-upload.component';
+import { ReviewComponent } from './components/home/review/review.component';
 
 const routes: Routes = [
   {path:"",component:LandingComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"home",component:HomeComponent,canActivate:[AuthGuard]}
+  {path:"home",component:HomeComponent,
+  children:[
+    {path:'upload',component:FileUploadComponent},
+    {path:'review',component:ReviewComponent}
+  ],
+  canActivate:[AuthGuard]
+},
+  
 ];
 
 @NgModule({
