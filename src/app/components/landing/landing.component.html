@@ -1,3 +1,13 @@
-<div class="col-sm">
-    <p>landing works!</p>
+<div class="col-md">
+    <div class="row">
+        <h1>Welcome to the data classification portal</h1>
+        <!-- <p>Sign up or login</p> -->
+        <button mat-raised-button color="primary" 
+        class="btn my-4"
+        type="submit" [routerLink]="['/login']" routerLinkActive="router-link-active"  >Sign in</button>
+        <button mat-raised-button color="primary" 
+        class="btn my-4"
+        type="submit" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</button>
+    
+    </div>
 </div>
