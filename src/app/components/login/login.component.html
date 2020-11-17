@@ -7,7 +7,7 @@
 
     <input [(ngModel)]="loginUser.password" name="password" type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
 
-    <div class="d-flex justify-content-between">
+    <!-- <div class="d-flex justify-content-between">
         <div>
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
@@ -17,7 +17,7 @@
         <div>
             <a href="">Forgot password?</a>
         </div>
-    </div>
+    </div> -->
 
     <button mat-raised-button color="primary" 
     class="btn btn-block my-4"
@@ -25,7 +25,7 @@
 
     <div class="text-center">
         <p>Not a member?
-            <a href="#">Register</a>
+            <a [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
         </p>
     </div>
 </form>
