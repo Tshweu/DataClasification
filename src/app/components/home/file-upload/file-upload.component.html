@@ -3,11 +3,11 @@
     
         <p class="h4 mb-4 text-center">File Upload</p>
         <div class="input-group input1">
-          <select class="browser-default custom-select">
-            <option selected>Select a file type</option>
-            <option value="1">Excel</option>
-            <option value="2">Text</option>
-            <option value="3">Word</option>
+          <select class="browser-default custom-select" [(ngModel)]="fileType">
+            <!-- <option selected>Select a file type</option> -->
+            <option *ngFor="let f of fileTypes">
+              {{f}}
+            </option>
           </select>
         </div>
         
@@ -31,8 +31,69 @@
             <label for="">File is Uploading...{{ value }}</label>
             <mat-progress-bar mode="determinate" [value]="value"></mat-progress-bar>
         
-    
+        <button mat-raised-button [disabled]="!excelSelected ? 'true' : 'false'" color="primary" class="btn btn-block my-4"
+            (click)="frame.show()"
+        >Select Sheet</button>
+
     </form>
+
+    <!--Modal-->
+    <div
+    mdbModal
+    #frame="mdbModal"
+    class="modal fade top"
+    id="frameModalTop"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myModalLabel"
+    aria-hidden="true"
+    style="overflow-y: auto"
+    >
+    <!--Dialog-->
+    <div class="modal-dialog modal-notify modal-info" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header text-center">
+          <h4 class="modal-title white-text w-100 font-weight-bold py-2">
+            Schedule appointment
+          </h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="frame.hide()"
+          >
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          Modal Body
+        </div>
+        <!--/.Body-->
+
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+          <button
+            type="button"
+            mdbBtn
+            color="info"
+            class="waves-effect"
+            mdbWavesEffect
+          >
+            Add
+          </button>
+        </div>
+        <!--Footer-->
+      </div>
+      <!--/.Content-->
+    </div>
+    <!--/.Dialog-->
+    </div>
+    <!--/.Modal-->
 </div>
 
 
