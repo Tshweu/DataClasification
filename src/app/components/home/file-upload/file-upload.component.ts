@@ -11,6 +11,7 @@ export class FileUploadComponent implements OnInit {
   selectedFile: File = null;
   fileName : string = 'Choose file';
   fileExists : boolean = false;
+  fileType: String = '';
   value:number = 0 ;
   
 
@@ -31,7 +32,7 @@ export class FileUploadComponent implements OnInit {
   //then subscribed to, to get the return value 
   uploadFile(){
     this.fileExists = true;
-    this._fileUploadService.fileUpload(this.selectedFile)
+    this._fileUploadService.fileUpload(this.selectedFile,this.fileType)
       .subscribe(event =>{
         if(event.type === HttpEventType.UploadProgress){
           this.value = event.loaded / event.total * 100;
