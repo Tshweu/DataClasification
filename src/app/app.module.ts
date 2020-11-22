@@ -30,8 +30,8 @@ import { ReviewComponent } from './components/home/review/review.component';
     HomeComponent,
     LandingComponent,
     FileUploadComponent,
-    ReviewComponent
-  ],
+    ReviewComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

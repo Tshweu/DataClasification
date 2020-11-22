@@ -15,8 +15,8 @@ const routes: Routes = [
   {path:"home",component:HomeComponent,
   children:[
     {path:'upload',component:FileUploadComponent},
-    {path:'review',component:ReviewComponent}
-  ],
+    {path:'review',component:ReviewComponent},
+    ],
   canActivate:[AuthGuard]
 },
   
