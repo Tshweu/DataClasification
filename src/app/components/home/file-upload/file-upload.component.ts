@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FileUploadService } from '../../../services/file-upload.service';
 import { HttpEventType} from '@angular/common/http';
-import {ModalDirective} from 'angular-bootstrap-md';
+import { ModalDirective} from 'angular-bootstrap-md';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -15,15 +16,20 @@ export class FileUploadComponent implements OnInit {
   fileExists : boolean = false;
   excelSelected : boolean = false;
   fileTypes = [];
-  fileType: Number;
+  fileType: number;
   value:number = 0;
-  
-  constructor(private _fileUploadService: FileUploadService) { }
+  Sheets:any;
+  selectedSheet : string;
+  filename: string;
+
+  constructor(private _fileUploadService: FileUploadService,private data: DataService) { }
 
   ngOnInit(): void { 
     this.fileTypes = [{id:1,name:'Excel'},
                 {id:2,name:'Text'},
                 {id:3,name:'Word'}];
+    this.Sheets = {sheets:'',
+    filename:''};
   }
   //event is passed to func
   //selected file is set to value of the selected file
@@ -45,6 +51,11 @@ export class FileUploadComponent implements OnInit {
           // console.log(event.loaded / event.total * 100);
         }else if(event.type === HttpEventType.Response){
           console.log(event);
+          if(this.excelSelected)
+          {
+            this.Sheets = event.body;
+            console.log(this.Sheets);
+          }
         }
       })
   }
@@ -56,6 +67,13 @@ export class FileUploadComponent implements OnInit {
       this.excelSelected = false;
     }
     console.log(val+ " :val  "+ this.fileType + " excel " + this.excelSelected)
+  }
+
+  onSheetSelected(){
+    this._fileUploadService.sheetSelection(this.selectedSheet,this.Sheets.filename)
+    .subscribe(res => {this.data.updateData(res);
+    console.log(res)},
+      err => {})
   }
 
 }

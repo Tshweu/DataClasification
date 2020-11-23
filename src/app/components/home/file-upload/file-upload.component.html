@@ -59,7 +59,7 @@
         <!--Header-->
         <div class="modal-header text-center">
           <h4 class="modal-title white-text w-100 font-weight-bold py-2">
-            Schedule appointment
+            Select sheet
           </h4>
           <button
             type="button"
@@ -74,7 +74,15 @@
 
         <!--Body-->
         <div class="modal-body">
-          Modal Body
+          Sheets Found:
+          <select class="browser-default custom-select" 
+                  [(ngModel)]="selectedSheet" 
+                  name="type">
+            <!-- <option selected>Select a file type</option> -->
+            <option *ngFor="let s of Sheets.sheets" [value]="s">
+              {{s}}
+            </option>
+          </select>
         </div>
         <!--/.Body-->
 
@@ -86,8 +94,9 @@
             color="info"
             class="waves-effect"
             mdbWavesEffect
+            (click)="onSheetSelected()"
           >
-            Add
+            Submit
           </button>
         </div>
         <!--Footer-->
