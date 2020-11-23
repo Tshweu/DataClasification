@@ -1,6 +1,7 @@
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { Component, OnInit, ViewChild, HostListener, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstrap-md';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-review',
@@ -11,12 +12,13 @@ export class ReviewComponent implements OnInit {
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective
   elements: any = [];
+  metaData: any;
   previous: any = [];
   headElements = ['', 'Field', 'Data', 'Classification'];
 
   classification = '';
 
-  constructor(private cdRef: ChangeDetectorRef) { }
+  constructor(private cdRef: ChangeDetectorRef,private data:DataService) { }
 
   ngOnInit() {
     for (let i = 1; i <= 15; i++) {
@@ -26,6 +28,9 @@ export class ReviewComponent implements OnInit {
     this.mdbTable.setDataSource(this.elements);
     this.elements = this.mdbTable.getDataSource();
     this.previous = this.mdbTable.getDataSource();
+
+    this.data.currentData.subscribe(meta=> {this.metaData = meta});
+    //console.log(this.metaData);  
   }
 
   ngAfterViewInit() {
@@ -39,6 +44,7 @@ export class ReviewComponent implements OnInit {
       let index = this.elements.indexOf(el);
       this.elements[index].classification = this.elements[index].classification === '' ? 'Classified':'';
       // this.elements[index] = el;
+      //console.log(this.metaData);  
       //
   }
 
