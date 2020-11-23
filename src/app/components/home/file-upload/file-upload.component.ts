@@ -55,6 +55,8 @@ export class FileUploadComponent implements OnInit {
           if(!this.excelSelected){
             this.data.updateData(event.body);
             this._router.navigateByUrl('home/review');
+          }else{
+            this.Sheets = event.body;
           }
         }
       })

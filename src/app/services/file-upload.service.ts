@@ -16,7 +16,6 @@ export class FileUploadService {
     switch(fileType){
       case '1':
         url = 'https://data-catalog-0.herokuapp.com/api/upload/excel';
-        console.log(url);    
         break;
       case '2':
         url = 'https://data-catalog-0.herokuapp.com/api/upload/txt';
