@@ -51,11 +51,10 @@ export class FileUploadComponent implements OnInit {
           this.value = event.loaded / event.total * 100;
           // console.log(event.loaded / event.total * 100);
         }else if(event.type === HttpEventType.Response){
-          console.log(event);
-          if(this.excelSelected)
-          {
-            this.Sheets = event.body;
-            console.log(this.Sheets);
+          console.log(event.body);
+          if(!this.excelSelected){
+            this.data.updateData(event.body);
+            this._router.navigateByUrl('home/review');
           }
         }
       })

@@ -6,3 +6,10 @@
         display: inline-block;
     }
 }
+
+.data{
+    display: grid;
+    grid-template-columns: repeat(1fr,2);
+    grid-template-rows: auto;
+    
+}
