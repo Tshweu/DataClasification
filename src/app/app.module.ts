@@ -20,6 +20,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FileUploadComponent } from './components/home/file-upload/file-upload.component';
 import { ReviewComponent } from './components/home/review/review.component';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { ReviewComponent } from './components/home/review/review.component';
     MatButtonModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthService, AuthGuard, 
+  providers: [AuthService, AuthGuard, DataService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
