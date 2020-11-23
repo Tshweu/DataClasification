@@ -13,14 +13,18 @@ export class FileUploadComponent implements OnInit {
   selectedFile: File = null;
   fileName : string = 'Choose file';
   fileExists : boolean = false;
-  excelSelected : boolean = true;
-  fileTypes = ['Excel','Text','Word'];
-  fileType: String = '';
+  excelSelected : boolean = false;
+  fileTypes = [];
+  fileType: Number;
   value:number = 0;
   
   constructor(private _fileUploadService: FileUploadService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.fileTypes = [{id:1,name:'Excel'},
+                {id:2,name:'Text'},
+                {id:3,name:'Word'}];
+  }
   //event is passed to func
   //selected file is set to value of the selected file
   onFileSelected(event){
@@ -34,7 +38,6 @@ export class FileUploadComponent implements OnInit {
   //then subscribed to, to get the return value 
   uploadFile(){
     this.fileExists = true;
-    // this.excelSelectSheetModal();
     this._fileUploadService.fileUpload(this.selectedFile,this.fileType)
       .subscribe(event =>{
         if(event.type === HttpEventType.UploadProgress){
@@ -46,10 +49,13 @@ export class FileUploadComponent implements OnInit {
       })
   }
 
-  excelSelectSheetModal(){
-    if(this.fileType == 'Excel'){
-    this.excelSelected = true;
+  onTypeSelected(val:any){
+    if(this.fileType == 1){
+      this.excelSelected = true;
+    }else{
+      this.excelSelected = false;
     }
+    console.log(val+ " :val  "+ this.fileType + " excel " + this.excelSelected)
   }
 
 }
