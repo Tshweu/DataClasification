@@ -3,6 +3,7 @@ import { FileUploadService } from '../../../services/file-upload.service';
 import { HttpEventType} from '@angular/common/http';
 import { ModalDirective} from 'angular-bootstrap-md';
 import { DataService } from '../../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-file-upload',
@@ -22,7 +23,7 @@ export class FileUploadComponent implements OnInit {
   selectedSheet : string;
   filename: string;
 
-  constructor(private _fileUploadService: FileUploadService,private data: DataService) { }
+  constructor(private _fileUploadService: FileUploadService,private data: DataService,private _router:Router) { }
 
   ngOnInit(): void { 
     this.fileTypes = [{id:1,name:'Excel'},
@@ -72,6 +73,7 @@ export class FileUploadComponent implements OnInit {
   onSheetSelected(){
     this._fileUploadService.sheetSelection(this.selectedSheet,this.Sheets.filename)
     .subscribe(res => {this.data.updateData(res);
+      this._router.navigateByUrl('home/review');
     console.log(res)},
       err => {})
   }
