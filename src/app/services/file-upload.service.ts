@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FileUploadService {
   // upload_url : string = ''; //'http://localhost:8080/api/upload';
-  private update_url = 'http://localhost:8080/api/update';
+  private update_url = 'https://data-catalog-0.herokuapp.com/api/update';
 
   constructor(private _http:HttpClient) { }
 
@@ -15,14 +15,14 @@ export class FileUploadService {
     let url='';
     switch(fileType){
       case '1':
-        url = 'http://localhost:8080/api/upload/excel';
+        url = 'https://data-catalog-0.herokuapp.com/api/upload/excel';
         console.log(url);    
         break;
       case '2':
-        url = 'http://localhost:8080/api/upload/txt';
+        url = 'https://data-catalog-0.herokuapp.com/api/upload/txt';
         break;
       case '3':
-        url = 'http://localhost:8080/api/upload/word';
+        url = 'https://data-catalog-0.herokuapp.com/api/upload/word';
         break;
     }
 
@@ -35,7 +35,7 @@ export class FileUploadService {
   }
 
   sheetSelection(Sheet,filename){
-    let url = 'http://localhost:8080/api/upload/excelSheet';
+    let url = 'https://data-catalog-0.herokuapp.com/api/upload/excelSheet';
     return this._http.post<any>(url,{"sheet":Sheet,"filename":filename});
   }
 
